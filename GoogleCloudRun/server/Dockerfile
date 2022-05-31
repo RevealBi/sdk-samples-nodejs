@@ -19,6 +19,12 @@
 # https://hub.docker.com/_/node
 FROM node:18
 
+# Needed for Chromium (used for exporting)
+RUN apt-get update
+RUN apt install -yq libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm-dev libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libasound2
+# Needed for export to pdf/pptx
+RUN apt install -yq libgdiplus
+
 # Create and change to the app directory.
 WORKDIR /usr/src/app
 
@@ -34,6 +40,8 @@ RUN npm install --only=production
 
 # Copy local code to the container image.
 COPY . ./
+
+RUN npm run warmup
 
 # Run the web service on container startup.
 

@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "warmup": "node warmup.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "revealbi-node-sdk": "0.1.4"
+    "revealbi-node-sdk": "0.2.2"
   }
 }
