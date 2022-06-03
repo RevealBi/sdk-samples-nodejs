@@ -45,6 +45,7 @@ node main.js
 ```
 
 7. You'll need a client app, using the client SDK. Try with the [GettingStarted client app](GettingStarted/client).
+More client-side example apps can be found in the [javascript samples](https://github.com/RevealBi/sdk-samples-javascript) and in the [react samples](https://github.com/RevealBi/sdk-samples-react).
 
 *Source code for this guide in [GettingStartedTS server app](GettingStartedTS/server)*
 
