@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-const reveal = require('revealbi-node-sdk');
+const reveal = require('reveal-sdk-node');
 
 const app = express();
 app.use(cors());

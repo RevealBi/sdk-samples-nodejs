@@ -1,4 +1,4 @@
-import reveal, {defaultDashboardProvider} from 'revealbi-node-sdk';
+import reveal, {defaultDashboardProvider} from 'reveal-sdk-node';
 import express from 'express';
 import cors from 'cors';
 
