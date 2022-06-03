@@ -103,3 +103,5 @@ dist
 # TernJS port file
 .tern-port
 GettingStarted/client/public/assets/reveal/
+GettingStartedTS/main.js
+GettingStartedTS/chrome/
