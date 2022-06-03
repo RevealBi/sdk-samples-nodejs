@@ -9,7 +9,7 @@ cd reveal-server
 npm init
 npm i -P express
 npm i -P cors
-npm i -D typescript
+npm i -D typescript @types/express @types/node @types/cors
 ```
 
 2. Install the Reveal SDK:
@@ -20,7 +20,7 @@ npm i -P reveal-sdk-node
 3. Create the app entry point, 'main.ts':
 
 ```ts
-import reveal, { defaultDashboardProvider } from 'revealbi-node-sdk';
+import reveal, { defaultDashboardProvider } from 'reveal-sdk-node';
 import express from 'express';
 import cors from 'cors';
 
@@ -40,6 +40,7 @@ app.listen(8080, () => {
 6. Run it:
 ```sh
 npx tsc main.ts --esModuleInterop true --strict
+node main.js
 ```
 
 7. You'll need a client app, using the client SDK. Try with the [GettingStarted client app](GettingStarted/client).
