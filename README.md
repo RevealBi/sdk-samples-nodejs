@@ -20,21 +20,19 @@ npm i -P reveal-sdk-node
 3. Create the app entry point, 'main.ts':
 
 ```ts
-import reveal, { defaultDashboardProvider } from 'reveal-sdk-node';
+import reveal from 'reveal-sdk-node';
 import express from 'express';
 import cors from 'cors';
 
 const app = express();
 app.use(cors()); // DEVELOPMENT only! In production, configure appropriately.
-const revealOptions = defaultDashboardProvider(); // configures a dashboard provider loading/storing from the './dashboards' folder.
-						  // Good to quickly test the SDK, but you might want to change it for a real app.
 app.use('/reveal-api/', reveal(revealOptions));
 app.listen(8080, () => {
 	console.log(`Reveal server accepting http requests`);
 });
 ```
 
-4. Create a 'dashboards' folder (needed by the `defaultDashboardProvider`) under your root folder (in this sample, 'reveal-server')
+4. Create a 'dashboards' folder under your root folder (in this sample, 'reveal-server')
 
 5. Copy [Marketing.rdash](GettingStarted/server/dashboards/Marketing.rdash) in the 'dashboards' folder to quickly test the app using the sample client.
 
@@ -82,7 +80,7 @@ app.use('/reveal-api/', reveal(revealOptions));
 
 ## Using Reveal to serve dashboard files
 
-The easiest way to serve dashboard files is by using the `defaultDashboardProvider` mentioned earlier. However, the SDK allows you to also change how the dashboards are loaded/saved.
+By default, reveal loads and stores dashboard files from/to the 'dashboards' folder. However, the SDK allows you to also change how the dashboards are loaded/saved.
 
 1. Create the dashboardProvider / dashboardSaver functions. The following example shows how to make a separate directory per userId:
 ```ts
