@@ -18,7 +18,13 @@ const langs = [
     'en', 'es', 'de', 'fr', 'it', 'ja', 'ko', 'ms', 'nl', 'pt', 'ru', 'zh-Hans', 'zh-Hant'
 ]
 
-downloadFile("reveal");
-langs.forEach(lang => {
-    downloadFile(`langpack.${lang}`);
-});
+fs.mkdir('public/assets/reveal', {recursive: true}, (err) => {
+    if (err) {
+        console.log("Create dir failed");
+    } else {           
+        downloadFile("reveal");
+        langs.forEach(lang => {
+            downloadFile(`langpack.${lang}`);
+        });
+    }
+})
