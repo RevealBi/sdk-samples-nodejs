@@ -1,6 +1,6 @@
 {
   "name": "google-cloud-run",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "reveal-sdk-node": "0.3.0"
+    "reveal-sdk-node": "0.4.4"
   }
 }
