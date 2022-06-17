@@ -82,13 +82,13 @@ app.use('/reveal-api/', reveal(revealOptions));
 
 By default, reveal loads and stores dashboard files from/to the 'dashboards' folder. However, the SDK allows you to also change how the dashboards are loaded/saved.
 
-1. Create the dashboardProvider / dashboardSaver functions. The following example shows how to make a separate directory per userId:
+1. Create the dashboardProvider / dashboardStorageProvider functions. The following example shows how to make a separate directory per userId:
 ```ts
 const myDashboardProvider = async (userContext:IRVUserContext | null, dashboardId: string) => {
 	return fs.createReadStream(`${__dirname}/dashboards/${userContext?.userId ?? "unknown"}/${dashboardId}.rdash`);
 }
 
-const myDashboardSaver = async (userContext:IRVUserContext | null, dashboardId: string, stream: fs.ReadStream) => {
+const myDashboardStorageProvider = async (userContext:IRVUserContext | null, dashboardId: string, stream: fs.ReadStream) => {
 	await pipeline(
 		stream,
 		fs.createWriteStream(`${__dirname}/dashboards/${userContext?.userId ?? "unknown"}/${dashboardId}.rdash`)
@@ -103,12 +103,12 @@ import reveal from 'reveal-sdk-node';
 
 const revealOptions: RevealOptions {
 	dashboardProvider: myDashboardProvider,
-	dashboardSaver: myDashboardSaver
+	dashboardStorageProvider: myDashboardStorageProvider
 };
 app.use('/reveal-api/', reveal(revealOptions));
 ```
 
-Note that you don't need to set-up both, if you have read-only dashboards, just don't provide the `dashboardSaver` function.
+Note that you don't need to set-up both, if you have read-only dashboards, just don't provide the `dashboardStorageProvider` function.
 
 ## UserContext
 
